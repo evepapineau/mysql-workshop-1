@@ -1,0 +1,47 @@
+create database barn;
+use barn;
+mysql> create table chickens (id int, type ENUM('male', 'female'), date_of_birth date);
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> insert into chickens (type, date_of_birth) values ('female', '2016-08-08');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into chickens (type, date_of_birth) values ('female', '2016-10-09')
+    -> ;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into chickens (type, date_of_birth) values ('male', '2016-08-25')                                                                              
+    -> ;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into chickens (type, date_of_birth) values ('female', '2016-09-18')
+    -> ;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into chickens (type, date_of_birth) values ('male', '2016-10-02')                                                                             
+    -> ;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from chickens;
++----+--------+---------------+---------------------+
+| id | type   | date_of_birth | will_come_to_age_on |
++----+--------+---------------+---------------------+
+|  1 | female | 2016-08-08    | NULL                |
+|  2 | female | 2016-10-09    | NULL                |
+|  3 | male   | 2016-08-25    | NULL                |
+|  4 | female | 2016-09-18    | NULL                |
+|  5 | male   | 2016-10-02    | NULL                |
++----+--------+---------------+---------------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT id, DATE_ADD(date_of_birth, INTERVAL 30 DAY) AS will_come_to_age_on FROM chickens;
++----+---------------------+
+| id | will_come_to_age_on |
++----+---------------------+
+|  1 | 2016-09-07          |
+|  2 | 2016-11-08          |
+|  3 | 2016-09-24          |
+|  4 | 2016-10-18          |
+|  5 | 2016-11-01          |
++----+---------------------+
+5 rows in set (0.00 sec)
