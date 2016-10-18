@@ -1,9 +1,7 @@
-mysql> ALTER TABLE Account ADD (email varchar(255), password varchar(40), createdOn datetime, modifiedOn datetime)
+mysql> ALTER TABLE Account ADD (email varchar(255), password varchar(40), createdOn datetime, modifiedOn datetime);
 Query OK, 0 rows affected (0.03 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 
-mysql> ALTER TABLE AddressBook ADD (accountId int auto_increment, name varchar(255), createdOn datetime, modifiedOn datetime);
-ERROR 1075 (42000): Incorrect table definition; there can be only one auto column and it must be defined as a key
 mysql> ALTER TABLE AddressBook ADD (accountId int, name varchar(255), createdOn datetime, modifiedOn datetime);
 Query OK, 0 rows affected (0.03 sec)
 Records: 0  Duplicates: 0  Warnings: 0
